@@ -24,7 +24,7 @@ public static void main(String[] args) {
         do {
             printMenu();
             choice = scanner.nextInt();
-            scanner.nextLine(); // Clear the newline character from the input buffer
+            scanner.nextLine(); 
 
             switch (choice) {
                 case 1:
@@ -59,15 +59,13 @@ public static void main(String[] args) {
         String dateStr = getDateFromUser("Enter the date (YYYY-MM-DD): ");
         LocalDate date = LocalDate.parse(dateStr, DATE_FORMATTER);
 
-        // Build the API URL with the correct date query parameters
+        
         String weatherURL = BASE_URL + "?date=" + date;
 
         try {
             String response = makeAPIRequest(weatherURL);
             JsonObject weatherData = JsonParser.parseString(response).getAsJsonObject();
 
-            // Implement parsing and printing weather data from the API response
-            // Replace this with the actual parsing logic based on the response structure
             System.out.println("Weather data for " + date + ": " + weatherData);
         } catch (IOException e) {
             System.out.println("Error fetching weather data: " + e.getMessage());
@@ -78,7 +76,6 @@ public static void main(String[] args) {
         String dateStr = getDateFromUser("Enter the date (YYYY-MM-DD): ");
         LocalDate date = LocalDate.parse(dateStr, DATE_FORMATTER);
 
-        // Build the API URL with the correct date query parameters
         String windSpeedURL = BASE_URL + "?date=" + date;
 
         try {
@@ -93,7 +90,7 @@ public static void main(String[] args) {
         String dateStr = getDateFromUser("Enter the date (YYYY-MM-DD): ");
         LocalDate date = LocalDate.parse(dateStr, DATE_FORMATTER);
 
-        // Build the API URL with the correct date query parameters
+        
         String pressureURL = BASE_URL + "?date=" + date;
 
         try {
